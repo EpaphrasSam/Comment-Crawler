@@ -1,20 +1,18 @@
-'use client'
+"use client";
 
-import { StatsCard } from '../shared/StatsCard'
-import { Card } from '../shared/Card'
-import { 
+import { StatsCard } from "../shared/StatsCard";
+import { Card } from "../shared/Card";
+import {
   Newspaper,
-  MessageCircle, 
-  TrendingUp, 
-  TrendingDown, 
-  Globe,
+  MessageCircle,
+  TrendingUp,
+  TrendingDown,
   Users,
   BarChart3,
   Clock,
-  Sparkles,
-} from 'lucide-react'
-import { faker } from '@faker-js/faker'
-import { Progress, Button, Tabs, Tab, CardBody } from '@nextui-org/react'
+} from "lucide-react";
+import { faker } from "@faker-js/faker";
+import { Progress, Tabs, Tab, CardBody } from "@nextui-org/react";
 
 // Generate mock statistics
 const generateMockStats = () => ({
@@ -43,7 +41,11 @@ const generateMockStats = () => ({
           trend: faker.number.int({ min: -20, max: 30 }),
         },
       ],
-      commentSentiment: faker.number.float({ min: -1, max: 1, precision: 0.01 }),
+      commentSentiment: faker.number.float({
+        min: -1,
+        max: 1,
+        precision: 0.01,
+      }),
     },
     cnn: {
       name: "CNN",
@@ -63,7 +65,11 @@ const generateMockStats = () => ({
           trend: faker.number.int({ min: -20, max: 30 }),
         },
       ],
-      commentSentiment: faker.number.float({ min: -1, max: 1, precision: 0.01 }),
+      commentSentiment: faker.number.float({
+        min: -1,
+        max: 1,
+        precision: 0.01,
+      }),
     },
     aljazeera: {
       name: "Al Jazeera",
@@ -83,14 +89,17 @@ const generateMockStats = () => ({
           trend: faker.number.int({ min: -20, max: 30 }),
         },
       ],
-      commentSentiment: faker.number.float({ min: -1, max: 1, precision: 0.01 }),
+      commentSentiment: faker.number.float({
+        min: -1,
+        max: 1,
+        precision: 0.01,
+      }),
     },
   },
   commentTrends: Array.from({ length: 7 }, (_, i) => ({
-    date: new Date(Date.now() - (6 - i) * 24 * 60 * 60 * 1000).toLocaleDateString(
-      "en-US",
-      { weekday: "short" }
-    ),
+    date: new Date(
+      Date.now() - (6 - i) * 24 * 60 * 60 * 1000
+    ).toLocaleDateString("en-US", { weekday: "short" }),
     count: faker.number.int({ min: 50, max: 200 }),
     sentiment: faker.number.float({ min: -1, max: 1, precision: 0.01 }),
   })),
@@ -284,7 +293,9 @@ export const DashboardStats = () => {
                   <Clock className="w-4 h-4 text-default-500" />
                   <div>
                     <p className="text-sm font-medium">{activity.action}</p>
-                    <p className="text-xs text-default-500">{activity.source}</p>
+                    <p className="text-xs text-default-500">
+                      {activity.source}
+                    </p>
                   </div>
                 </div>
                 <span className="text-xs text-default-500">
